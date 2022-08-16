@@ -35,10 +35,29 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+
+        //BE SURE TO PROTECT EVERYTHING IN THE CONFIG
+        //DON'T COMMIT IT!!!
+
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyALJTjEmzMxC8Yktj0dtB9gLlCS0EoPXEM",
+            authDomain: "casestudy4-cbedb.firebaseapp.com",
+            projectId: "casestudy4-cbedb",
+            storageBucket: "casestudy4-cbedb.appspot.com",
+            messagingSenderId: "21107080884",
+            appId: "1:21107080884:web:3847f024432d67242421e1",
+            measurementId: "G-XQ3F5JJ8RF"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <!-- body -->
 
 <body class="main-layout">
+
 <!-- loader  -->
 <div class="loader_bg">
     <div class="loader"><img src="images/loading.gif" alt="#" /></div>
@@ -109,7 +128,7 @@
 </div>
 <div class="form-group">
     <label for="InputLyrics">Lyrics</label>
-    <input type="text" class="form-control" id="InputLyrics" placeholder="Enter lyrics">
+    <textarea style="height: 200px" type="text" class="form-control" id="InputLyrics" placeholder="Enter lyrics"></textarea>
 </div>
 <div class="form-group form-check">
     <div>
@@ -126,8 +145,13 @@
     </div>
 
 </div>
-<label class="form-label" for="image">Picture</label>
-<input type="text" class="form-control" id="image" />
+<div>
+    <label class="form-label" for="pictureButton1">Upload Picture</label>
+    <progress value="0" max="100" id="uploaderPicture1">0%</progress>
+    <input type="file" value="upload" accept=".mp3" id="pictureButton1">
+</div>
+<p></p>
+<p></p>
 
 <button type="button" onclick="updateSong()" class="btn btn-primary">Submit</button>
 <!-- end EDIT FORM  -->
@@ -195,7 +219,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Edited Successfully</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" onclick="closeEditSuccess()" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>

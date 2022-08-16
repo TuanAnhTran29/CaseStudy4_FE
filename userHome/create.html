@@ -122,7 +122,7 @@
     </div>
     <div class="form-group">
         <label for="InputLyrics">Lyrics</label>
-        <input type="text" class="form-control" id="InputLyrics" placeholder="Enter lyrics">
+        <textarea style="height: 200px" type="text" class="form-control" id="InputLyrics" placeholder="Enter lyrics"></textarea>
     </div>
     <div class="form-group form-check">
         <div>
@@ -140,14 +140,18 @@
 
     </div>
     <div>
-        <label for="fileButton">Song Upload</label>
+        <label for="fileButton">Upload Song</label>
         <progress value="0" max="100" id="uploader">0%</progress>
         <input type="file" value="upload" accept=".mp3" id="fileButton">
     </div>
-    <label class="form-label" for="pictureButton">Picture</label>
-    <progress value="0" max="100" id="uploaderPicture">0%</progress>
-    <input type="file" value="upload" accept=".mp3" id="pictureButton">
+    <div>
+        <label class="form-label" for="pictureButton">Upload Picture</label>
+        <progress value="0" max="100" id="uploaderPicture">0%</progress>
+        <input type="file" value="upload" accept=".mp3" id="pictureButton">
+    </div>
 
+    <p></p>
+    <p></p>
     <button type="button" onclick="createSong()" class="btn btn-primary">Submit</button>
 
 

@@ -17,8 +17,8 @@ function showListSong(){
                     '                <div class="fw-bold">'+ data[i].name +'</div>\n' + data[i].artist +
                     '                \n' +
                     '            </div>\n' +
-                    '        <audio controls><source src="'+ data[i].path +' "></audio>\n' +
-                    '            <button onclick="doLike_Dislike(' + data[i].id + ')" style="font-size:24px "><i class="fa fa-heart-o"></i></button>\n' +
+                    '        <audio style="width: 90%" controls><source src="'+ data[i].path +' "></audio>\n' +
+                    '            <button onclick="doLike_Dislike(' + data[i].id + ')" style="font-size:24px;background-color: white "><i class="fa fa-heart-o"></i></button>\n' +
                     '        </li>'
             }
             document.getElementById("listSong").innerHTML= listSong
