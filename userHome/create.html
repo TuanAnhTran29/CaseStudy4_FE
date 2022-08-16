@@ -92,10 +92,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                    <input id="keyword" class="form-control" type="text" placeholder="Search">
-                    <button onclick="toSearchSongPage()" class="btn btn-primary"><img src="images/search_icon.png"></button>
-                </div>
             </div>
         </div>
         <!-- end header inner -->
@@ -148,8 +144,9 @@
         <progress value="0" max="100" id="uploader">0%</progress>
         <input type="file" value="upload" accept=".mp3" id="fileButton">
     </div>
-    <label class="form-label" for="image">Picture</label>
-    <input type="text" class="form-control" id="image" />
+    <label class="form-label" for="pictureButton">Picture</label>
+    <progress value="0" max="100" id="uploaderPicture">0%</progress>
+    <input type="file" value="upload" accept=".mp3" id="pictureButton">
 
     <button type="button" onclick="createSong()" class="btn btn-primary">Submit</button>
 
