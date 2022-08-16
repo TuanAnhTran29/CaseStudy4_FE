@@ -1,7 +1,12 @@
+function toSearchSongPage(){
+    let keyword= $("#keyword").val()
+    window.localStorage.setItem("keyword",keyword);
+    window.location.href= "/casestudy4_FE/userHome/searchPage.html"
+}
 function listSearchSong(){
     let currentUser= JSON.parse(localStorage.getItem("user"))
-    let song= localStorage.getItem("song")
-    console.log(song)
+    let keyword= localStorage.getItem("keyword")
+    console.log(keyword)
     $.ajax({
         headers:{
             'Accept': 'application/json',
@@ -9,7 +14,7 @@ function listSearchSong(){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/song/search/" + song,
+        url: "http://localhost:8080/api/song/search/" + keyword,
         success: function (data){
             let listSong= ''
             for (let i=0; i< data.length; i++){
@@ -19,20 +24,35 @@ function listSearchSong(){
                     '                \n' +
                     '            </div>\n' +
                     '        <audio controls><source src="'+ data[i].path +' "></audio>\n' +
-                    '            <span class="badge bg-primary rounded-pill">Luot nghe</span>\n' +
+                    '            <button onclick="doLike_Dislike(' + data[i].id + ')" style="font-size:24px"><i class="fa fa-heart-o"></i></button>\n' +
                     '        </li>'
             }
             document.getElementById("listSearchSong").innerHTML= listSong
         }
     })
-    window.localStorage.removeItem("song")
+    window.localStorage.removeItem("keyword")
     event.preventDefault()
 }
 
-function toSearchSongPage(){
-    let song= $("#keyword").val()
-    window.localStorage.setItem("song",song);
-    window.location.href= "/casestudy4_FE/userHome/searchPage.html"
+function doLike_Dislike(id){
+    let currentUser= JSON.parse(localStorage.getItem("user"))
+    console.log("clicked")
+    let heart= $(this)
+    let message= {
+        "message": "do like"
+    }
+    $.ajax({
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        type: "GET",
+        url: "http://localhost:8080/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
+
+    })
 }
+
+
 
 listSearchSong()

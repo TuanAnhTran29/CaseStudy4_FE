@@ -73,14 +73,14 @@ function createSong(){
                     let lyrics= $("#InputLyrics").val()
                     let category= $("input[type= radio]:checked").val()
                     let image= $("#image").val()
-                    let song= downloadURL
+                    let path= downloadURL
                     let newSong= {
                         name: songName,
                         artist: artist,
                         lyrics: lyrics,
                         categories: [{id:category}],
                         picture: image,
-                        path: song,
+                        path: path,
                         user: {id:currentUser.id}
                     }
 
@@ -93,7 +93,17 @@ function createSong(){
                         type: "POST",
                         url: "http://localhost:8080/api/song",
                         data: JSON.stringify(newSong),
-                        success: resetCreatePage()
+                        success: function (data){
+                            console.log(data.message)
+                            if(data.message === "Created Song Successfully!"){
+                                $("#createSuccess").modal("show")
+                                resetCreatePage()
+                            }else{
+                                $("#createFail").modal("show")
+                            }
+
+
+                        }
 
 
                     })
@@ -106,4 +116,12 @@ function resetCreatePage(){
     $('#InputLyrics').val('')
     $('input[type= radio]').prop('checked',false)
     $('#image').val('')
+}
+
+function closeCreateSuccess(){
+    $("#createSuccess").modal("hide")
+}
+
+function closeCreateFail(){
+    $("#createFail").modal("hide")
 }

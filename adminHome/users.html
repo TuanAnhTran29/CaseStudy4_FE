@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
   <!-- site metas -->
-  <title>Rock</title>
+  <title>Music MP3-Users</title>
   <meta name="keywords" content="">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -71,9 +71,16 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+          <div>
+            <input id="username" class="form-control" type="text" placeholder="Search">
+            <button onclick="toSearchUserPage()" class="btn btn-primary"><img src="images/search_icon.png"></button>
+          </div>
+
+        </div>
     <!-- end header inner -->
+  </div>
+    </div>
   </div>
 </header>
 <!-- end header -->
@@ -84,9 +91,6 @@
 
       <div class="text-bg relative">
         <h1>Mp3<br><span class="Perfect">The Perfect Music</span><br>Welcome To The Music</h1>
-        <p>Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felis lacinia nec et est
-          <br> aptent taciti sociosqu ad litora torquent per conubia nostra</p>
-        <a href="#">Download Now</a>
       </div>
 
     </div>
@@ -101,80 +105,52 @@
 
 <!--  footer -->
 <footr id="footer_with_contact">
-  <div class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-12 width">
-          <div class="address">
-            <h3>Contact Us</h3>
-            <ul class="locarion_icon">
-              <li><img src="icon/1.png" alt="icon" />104 New York , USA</li>
-              <li><img src="icon/2.png" alt="icon" />Phone : ( +71 5896547 )</li>
-              <li><img src="icon/3.png" alt="icon" />Email : demo@email.com</li>
-
-            </ul>
-
-            <ul class="contant_icon">
-              <li><img src="icon/fb.png" alt="icon" /></li>
-              <li><img src="icon/tw.png" alt="icon" /></li>
-              <li><img src="icon/lin(2).png" alt="icon" /></li>
-              <li><img src="icon/instagram.png" alt="icon" /></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-12 width">
-          <div class="address">
-            <h3>Get In Touch</h3>
-            <form>
-              <div class="row">
-                <div class="col-sm-12">
-                  <input class="contactus" placeholder="Name" type="text" name="Name">
-                </div>
-                <div class="col-sm-12">
-                  <input class="contactus" placeholder="Phone" type="text" name="Email">
-                </div>
-                <div class="col-sm-12">
-                  <input class="contactus" placeholder="Email" type="text" name="Email">
-                </div>
-                <div class="col-sm-12">
-                  <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                </div>
-                <div class="col-sm-12">
-                  <button class="send">Send</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 width">
-          <div class="address">
-            <h3>New Music </h3>
-            <div class="row">
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                <figure><img src="images/music1.jpg" /></figure>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                <figure><img src="images/music2.jpg" /></figure>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                <figure><img src="images/music3.jpg" /></figure>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                <figure><img src="images/music4.jpg" /></figure>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-      <p>© 2019 All Rights Reserved. <a href="https://html.design/">Free html Templates</a></p>
-    </div>
+  <div class="copyright">
+    <p>© 2021 Tuấn Anh Trần</p>
   </div>
 
 </footr>
 <!-- end footer -->
+
+<div class="modal" id="deleteUser" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Are You Sure?</h5>
+        <button type="button" onclick="closeDeleteUser()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to delete this user?</p>
+        <p>*** This user's songs will also be removed from the list ***</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="closeDeleteUser()" class="btn btn-primary">No</button>
+        <button type="button" onclick="confirmDeleteUser()" class="btn btn-secondary" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="confirmDelete" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Deleted Successfully</h5>
+        <button type="button" onclick="closeConfirmDelete()" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>This user has been removed from the list!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="closeConfirmDelete()" class="btn btn-primary">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
@@ -206,5 +182,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="js/userList.js"></script>
+<script src="js/searchUser.js"></script>
 </body>
 </html>

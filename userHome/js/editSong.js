@@ -1,6 +1,7 @@
+// let currentUser= JSON.parse(localStorage.getItem("user"))
 
 function toEditPage(id){
-
+    let currentUser= JSON.parse(localStorage.getItem("user"))
     $.ajax({
         headers:{
             'Accept': 'application/json',
@@ -12,12 +13,8 @@ function toEditPage(id){
         success: function (data){
             window.localStorage.setItem("songEdit",JSON.stringify(data))
             window.location.href= "/casestudy4_FE/userHome/editSong.html"
-
-
-
         }
     })
-
 }
 
 function showEditForm(){
@@ -49,7 +46,6 @@ function updateSong(){
         user: {id: currentUser.id},
         path: JSON.parse(localStorage.getItem("songEdit")).path
     }
-    console.log(id)
     $.ajax({
         headers:{
             'Accept': 'application/json',
@@ -59,8 +55,14 @@ function updateSong(){
         type: "PUT",
         url: "http://localhost:8080/api/song/edit/" + id ,
         data: JSON.stringify(newSong),
-        success:
-            resetCreatePage()
+        success: function (data){
+            if(data.message === "Updated Song Successfully!"){
+                $("#editSuccess").modal("show")
+                resetCreatePage()
+            }
+
+        }
+
 
 
     })
@@ -70,6 +72,11 @@ function updateSong(){
 function deleteSongInApp(){
     localStorage.removeItem("songEdit")
 
+}
+
+function closeEditSuccess(){
+    $("#editSuccess").modal("hide")
+    window.location.href= "/casestudy4_FE/userHome/mySong.html"
 }
 
 

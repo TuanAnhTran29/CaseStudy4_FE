@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>Rock</title>
+    <title>Music MP3-Create new song</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -93,10 +93,8 @@
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                    <form class="search">
-                        <input id="keyword" class="form-control" type="text" placeholder="Search">
-                        <button onclick="toSearchSongPage()"><img src="images/search_icon.png"></button>
-                    </form>
+                    <input id="keyword" class="form-control" type="text" placeholder="Search">
+                    <button onclick="toSearchSongPage()" class="btn btn-primary"><img src="images/search_icon.png"></button>
                 </div>
             </div>
         </div>
@@ -111,9 +109,6 @@
 
             <div class="text-bg relative">
                 <h1>Mp3<br><span class="Perfect">The Perfect Music</span><br>Welcome To The Music</h1>
-                <p>Lorem ipsum dolor sit amet consec tetur adipiscing elit elit at felis lacinia nec et est
-                    <br> aptent taciti sociosqu ad litora torquent per conubia nostra</p>
-                <a href="#">Download Now</a>
             </div>
 
         </div>
@@ -162,81 +157,54 @@
 
 <!--  footer -->
 <footr id="footer_with_contact">
-    <div class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12 width">
-                    <div class="address">
-                        <h3>Contact Us</h3>
-                        <ul class="locarion_icon">
-                            <li><img src="icon/1.png" alt="icon" />104 New York , USA</li>
-                            <li><img src="icon/2.png" alt="icon" />Phone : ( +71 5896547 )</li>
-                            <li><img src="icon/3.png" alt="icon" />Email : demo@email.com</li>
-
-                        </ul>
-
-                        <ul class="contant_icon">
-                            <li><img src="icon/fb.png" alt="icon" /></li>
-                            <li><img src="icon/tw.png" alt="icon" /></li>
-                            <li><img src="icon/lin(2).png" alt="icon" /></li>
-                            <li><img src="icon/instagram.png" alt="icon" /></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 width">
-                    <div class="address">
-                        <h3>Get In Touch</h3>
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Name" type="text" name="Name">
-                                </div>
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Phone" type="text" name="Email">
-                                </div>
-                                <div class="col-sm-12">
-                                    <input class="contactus" placeholder="Email" type="text" name="Email">
-                                </div>
-                                <div class="col-sm-12">
-                                    <textarea class="textarea" placeholder="Message" type="text" name="Message"></textarea>
-                                </div>
-                                <div class="col-sm-12">
-                                    <button class="send">Send</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 width">
-                    <div class="address">
-                        <h3>New Music </h3>
-                        <div class="row">
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                <figure><img src="images/music1.jpg" /></figure>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                <figure><img src="images/music2.jpg" /></figure>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                <figure><img src="images/music3.jpg" /></figure>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 ">
-                                <figure><img src="images/music4.jpg" /></figure>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="copyright">
-            <p>© 2019 All Rights Reserved. <a href="https://html.design/">Free html Templates</a></p>
+            <p>© 2021 Tuấn Anh Trần</p>
         </div>
     </div>
 
 </footr>
 <!-- end footer -->
+
+<div class="modal" id="createSuccess" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Created New Song Successfully</h5>
+                <button type="button" onclick="closeCreateSuccess()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You have added a new song!<a href="mySong.html"> Check it out</a> </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="closeCreateSuccess()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="createFail" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create new song fail</h5>
+                <button type="button" onclick="closeCreateFail()" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You already have this song on the list!<a href="mySong.html"> Check it out</a> </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="closeCreateFail()" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Javascript files-->
+
+
 
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
@@ -271,6 +239,7 @@
 <script src="js/userHome.js"></script>
 <script src="js/createSong.js"></script>
 <script src="js/searchSong.js"></script>
+
 
 </body>
 </html>

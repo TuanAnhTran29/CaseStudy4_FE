@@ -1,6 +1,12 @@
-let currentUser= JSON.parse(localStorage.getItem("user"))
-
-function showUserSongs(){
+function toMySongSearchSongPage(){
+    let keyword= $("#keyword").val()
+    window.localStorage.setItem("keywordMySong",keyword);
+    window.location.href= "/casestudy4_FE/userHome/mySongListSearchSong.html"
+}
+function listSearchSongMySong(){
+    let currentUser= JSON.parse(localStorage.getItem("user"))
+    let keyword= localStorage.getItem("keywordMySong")
+    console.log(keyword)
     $.ajax({
         headers:{
             'Accept': 'application/json',
@@ -8,12 +14,11 @@ function showUserSongs(){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/song/user/" + currentUser.id  ,
-        success: function(data) {
-            let mySongList=''
+        url: "http://localhost:8080/api/song/search/" + keyword,
+        success: function (data){
+            let listSong= ''
             for (let i=0; i< data.length; i++){
-                mySongList +=
-                    '<li class="list-group-item d-flex justify-content-between align-items-start">\n' +
+                listSong += '<li class="list-group-item d-flex justify-content-between align-items-start">\n' +
                     '            <div class="ms-2 me-auto">\n' +
                     '                <div class="fw-bold">'+ data[i].name +'</div>\n' + data[i].artist +
                     '                \n' +
@@ -23,11 +28,13 @@ function showUserSongs(){
                     '        <button onclick="deleteModal('+ data[i].id +')" class="badge bg-primary rounded-pill">DELETE</button>\n' +
                     '        </li>'
             }
-            document.getElementById("mySongList").innerHTML= mySongList
+            document.getElementById("mySongSearchResults").innerHTML= listSong
         }
     })
+    window.localStorage.removeItem("keywordMySong")
+    event.preventDefault()
 }
 
 
-showUserSongs()
+listSearchSongMySong()
 

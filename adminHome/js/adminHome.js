@@ -18,11 +18,26 @@ async function showListSong(){
                     '                \n' +
                     '            </div>\n' +
                     '            <audio controls><source src="' + data[i].path +'"></audio>\n' +
-                    '            <span class="badge bg-primary rounded-pill">Luot nghe</span>\n' +
+                    '            <button onclick="doLike_Dislike(' + data[i].id + ')" style="font-size:24px "><i class="fa fa-heart-o"></i></button>\n' +
                     '        </li>'
             }
             document.getElementById("listSong").innerHTML= listSong
         }
+    })
+}
+
+function doLike_Dislike(id){
+    let currentUser= JSON.parse(localStorage.getItem("user"))
+    console.log("clicked")
+    $.ajax({
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        type: "GET",
+        url: "http://localhost:8080/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
+
     })
 }
 

@@ -19,7 +19,7 @@ function listSearchSong(){
                     '                \n' +
                     '            </div>\n' +
                     '        <audio controls><source src="'+ data[i].path +' "></audio>\n' +
-                    '            <span class="badge bg-primary rounded-pill">Luot nghe</span>\n' +
+                    '            <button onclick="doLike_Dislike(' + data[i].id + ')" style="font-size:24px "><i class="fa fa-heart-o"></i></button>\n' +
                     '        </li>'
             }
             document.getElementById("listSongSearch").innerHTML= listSong
@@ -33,6 +33,25 @@ function toSearchSongPage(){
     let song= $("#keyword").val()
     window.localStorage.setItem("song",song);
     window.location.href= "/casestudy4_FE/adminHome/searchSong.html"
+}
+
+function doLike_Dislike(id){
+    let currentUser= JSON.parse(localStorage.getItem("user"))
+    console.log("clicked")
+    let heart= $(this)
+    let message= {
+        "message": "do like"
+    }
+    $.ajax({
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + currentUser.token
+        },
+        type: "GET",
+        url: "http://localhost:8080/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
+
+    })
 }
 
 listSearchSong()
