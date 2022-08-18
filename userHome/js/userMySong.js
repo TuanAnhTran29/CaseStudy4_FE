@@ -8,7 +8,7 @@ function showUserSongs(){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/song/user/" + currentUser.id  ,
+        url: "https://casestudy4.herokuapp.com/api/song/user/" + currentUser.id  ,
         success: function(data) {
             let mySongList=''
             for (let i=0; i< data.length; i++){

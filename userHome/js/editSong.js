@@ -71,7 +71,7 @@ function toEditPage(id){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/song/" + id  ,
+        url: "https://casestudy4.herokuapp.com/api/song/" + id  ,
         success: function (data){
             window.localStorage.setItem("songEdit",JSON.stringify(data))
             window.location.href= "/casestudy4_FE/userHome/editSong.html"
@@ -115,7 +115,7 @@ function updateSong(){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "PUT",
-        url: "http://localhost:8080/api/song/edit/" + id ,
+        url: "https://casestudy4.herokuapp.com/api/song/edit/" + id ,
         data: JSON.stringify(newSong),
         success: function (data){
             if(data.message === "Updated Song Successfully!"){

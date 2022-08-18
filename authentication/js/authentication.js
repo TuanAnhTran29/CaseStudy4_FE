@@ -12,7 +12,7 @@ function signin(){
         },
         type: "POST",
         data: JSON.stringify(userLogin),
-        url: "http://localhost:8080/api/auth/signin",
+        url: "https://casestudy4.herokuapp.com/api/auth/signin",
         success: function (data){
             if (data.message !== "Error -> Unauthorized"){
                 window.localStorage.setItem('user',JSON.stringify(data));
@@ -55,7 +55,7 @@ function signup(){
         },
         type: "POST",
         data: JSON.stringify(userSignUp),
-        url: "http://localhost:8080/api/auth/signup",
+        url: "https://casestudy4.herokuapp.com/api/auth/signup",
         success: function (data){
             if (data.message !== "Username Existed! Please try again!" && data.message !== "Email Existed! Please try again!"){
                 if(data.message !== "Password must be more than 6 characters"){
@@ -92,7 +92,7 @@ function next(){
         },
         type: "POST",
         data: JSON.stringify(forgotForm),
-        url: "http://localhost:8080/api/auth/forgotPassword",
+        url: "https://casestudy4.herokuapp.com/api/auth/forgotPassword",
         success: function (data){
             if(data.message !== "Can not find this user"){
                 if(data.message !== "Password must be more than 6 characters"){

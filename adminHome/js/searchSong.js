@@ -9,7 +9,7 @@ function listSearchSong(){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/song/search/" + song,
+        url: "https://casestudy4.herokuapp.com/api/song/search/" + song,
         success: function (data){
             let listSong= ''
             for (let i=0; i< data.length; i++){
@@ -49,7 +49,7 @@ function doLike_Dislike(id){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
+        url: "https://casestudy4.herokuapp.com/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
 
     })
 }

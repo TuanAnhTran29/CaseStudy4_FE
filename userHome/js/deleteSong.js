@@ -9,7 +9,7 @@ async function deleteSong(id){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "DELETE",
-        url: "http://localhost:8080/api/song/delete/" + id,
+        url: "https://casestudy4.herokuapp.com/api/song/delete/" + id,
         // success: setTimeout(getAllList,500)
 
 
@@ -54,7 +54,7 @@ function getAllList(){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/song",
+        url: "https://casestudy4.herokuapp.com/api/song",
         success: function (data){
             let listSong= ''
             for (let i=0; i< data.length; i++){

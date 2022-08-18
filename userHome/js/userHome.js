@@ -8,7 +8,7 @@ function showListSong(){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/song",
+        url: "https://casestudy4.herokuapp.com/api/song",
         success: function (data){
             let listSong= ''
             for (let i=0; i< data.length; i++){
@@ -17,7 +17,7 @@ function showListSong(){
                     '                <div class="fw-bold">'+ data[i].name +'</div>\n' + data[i].artist +
                     '                \n' +
                     '            </div>\n' +
-                    '        <audio style="width: 90%" controls><source src="'+ data[i].path +' "></audio>\n' +
+                    '        <audio style="width: 80%" controls><source src="'+ data[i].path +' "></audio>\n' +
                     '            <button onclick="doLike_Dislike(' + data[i].id + ')" style="font-size:24px;background-color: white "><i class="fa fa-heart-o"></i></button>\n' +
                     '        </li>'
             }
@@ -40,7 +40,7 @@ function doLike_Dislike(id){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
+        url: "https://casestudy4.herokuapp.com/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
 
     })
 }

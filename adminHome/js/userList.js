@@ -7,7 +7,7 @@ function showUserList(){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "http://localhost:8080/api/admin",
+        url: "https://casestudy4.herokuapp.com/api/admin",
         success: function (data) {
             let listUser=''
             for (let i=0; i< data.length; i++){
@@ -33,7 +33,7 @@ function deleteUser(id){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "DELETE",
-        url: "http://localhost:8080/api/admin/" + id,
+        url: "https://casestudy4.herokuapp.com/api/admin/" + id,
 
     })
 }

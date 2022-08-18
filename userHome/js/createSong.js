@@ -154,7 +154,7 @@ function createSong(){
                             'Authorization': 'Bearer ' + currentUser.token
                         },
                         type: "POST",
-                        url: "http://localhost:8080/api/song",
+                        url: "https://casestudy4.herokuapp.com/api/song",
                         data: JSON.stringify(newSong),
                         success: function (data){
                             console.log(data.message)
