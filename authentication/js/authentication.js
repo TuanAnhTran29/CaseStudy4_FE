@@ -60,7 +60,11 @@ function signup(){
             if (data.message !== "Username Existed! Please try again!" && data.message !== "Email Existed! Please try again!"){
                 if(data.message !== "Password must be more than 6 characters"){
                     if (data.message !== "Re-enter incorrect password!"){
-                        $("#signUpSuccess").modal("show")
+                        if(data.message !== "Please fill in the correct email format!"){
+                            $("#signUpSuccess").modal("show")
+                        }else {
+                            $("#signUpEmailFormatFail").modal("show")
+                        }
                     }else {
                         $("#signUpPasswordFail").modal("show")
                     }
@@ -149,6 +153,11 @@ function closeForgotFail2(){
 function closeForgotFail3(){
     $("#forgotFail3").modal("hide")
 }
+
+function closeSignUpEmailFormatFailModal(){
+    $("#signUpEmailFormatFail").modal("hide")
+}
+
 
 // Forgot Password Form
 function myFunction1() {
