@@ -14,7 +14,7 @@ function signin(){
         data: JSON.stringify(userLogin),
         url: "https://casestudy4.herokuapp.com/api/auth/signin",
         success: function (data){
-            if (data.message !== "Error -> Unauthorized"){
+            if (data.error !== "Accepted"){
                 window.localStorage.setItem('user',JSON.stringify(data));
                 let currentUser= JSON.parse(localStorage.getItem("user"))
                 if (currentUser.roles[0].authority === "USER"){
