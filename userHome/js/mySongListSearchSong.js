@@ -1,7 +1,7 @@
 function toMySongSearchSongPage(){
     let keyword= $("#keyword").val()
     window.localStorage.setItem("keywordMySong",keyword);
-    window.location.href= "/casestudy4_FE/userHome/mySongListSearchSong.html"
+    window.location.href= "/userHome/mySongListSearchSong.html"
 }
 function listSearchSongMySong(){
     let currentUser= JSON.parse(localStorage.getItem("user"))
