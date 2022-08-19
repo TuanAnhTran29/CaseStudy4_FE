@@ -161,8 +161,10 @@ function createSong(){
                             if(data.message === "Created Song Successfully!"){
                                 $("#createSuccess").modal("show")
                                 resetCreatePage()
-                            }else{
+                            }else if(data.message === "You already have this song!"){
                                 $("#createFail").modal("show")
+                            }else {
+                                $("#createFail1").modal("show")
                             }
 
 
@@ -187,4 +189,8 @@ function closeCreateSuccess(){
 
 function closeCreateFail(){
     $("#createFail").modal("hide")
+}
+
+function closeCreateFail1(){
+    $("#createFail1").modal("hide")
 }
