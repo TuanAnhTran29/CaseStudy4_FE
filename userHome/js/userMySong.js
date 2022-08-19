@@ -18,7 +18,7 @@ function showUserSongs(){
                     '                <div class="fw-bold">'+ data[i].name +'</div>\n' + data[i].artist +
                     '                \n' +
                     '            </div>\n' +
-                    '        <audio controls><source src="'+ data[i].path +' "></audio>\n' +
+                    '        <audio style="width: 80%;" controls><source src="'+ data[i].path +' "></audio>\n' +
                     '        <button onclick="toEditPage('+ data[i].id +')" class="badge bg-primary rounded-pill">EDIT</button>\n' +
                     '        <button onclick="deleteModal('+ data[i].id +')" class="badge bg-primary rounded-pill">DELETE</button>\n' +
                     '        </li>'
