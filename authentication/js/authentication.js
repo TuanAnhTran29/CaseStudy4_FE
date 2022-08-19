@@ -18,9 +18,9 @@ function signin(){
                 window.localStorage.setItem('user',JSON.stringify(data));
                 let currentUser= JSON.parse(localStorage.getItem("user"))
                 if (currentUser.roles[0].authority === "USER"){
-                    window.location.href= "/casestudy4_FE/userHome/index.html"
+                    window.location.href= "/userHome/index.html"
                 }else {
-                    window.location.href= "/casestudy4_FE/adminHome/index.html"
+                    window.location.href= "/adminHome/index.html"
                 }
 
             }else {
