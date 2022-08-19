@@ -118,9 +118,9 @@ function updateSong(){
         url: "https://casestudy4.herokuapp.com/api/song/edit/" + id ,
         data: JSON.stringify(newSong),
         success: function (data){
+            console.log(data)
             if(data.message === "Updated Song Successfully!"){
                 $("#editSuccess").modal("show")
-                resetCreatePage()
             }
 
         }
@@ -128,7 +128,7 @@ function updateSong(){
 
 
     })
-    localStorage.removeItem("songEdit")
+    // localStorage.removeItem("songEdit")
 }
 
 function deleteSongInApp(){
