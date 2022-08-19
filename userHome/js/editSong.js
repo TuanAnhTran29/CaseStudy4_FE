@@ -121,14 +121,13 @@ function updateSong(){
             console.log(data)
             if(data.message === "Updated Song Successfully!"){
                 $("#editSuccess").modal("show")
+            }else {
+                $("#editFail").modal("show")
             }
 
         }
-
-
-
     })
-    // localStorage.removeItem("songEdit")
+
 }
 
 function deleteSongInApp(){
@@ -138,7 +137,12 @@ function deleteSongInApp(){
 
 function closeEditSuccess(){
     $("#editSuccess").modal("hide")
+    localStorage.removeItem("songEdit")
     window.location.href= "/userHome/mySong.html"
+}
+
+function closeEditFail(){
+    $("#editFail").modal("hide")
 }
 
 
