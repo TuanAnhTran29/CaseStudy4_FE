@@ -114,7 +114,7 @@ function next(){
 
 function closeSignUpModal(){
     $("#signUpSuccess").modal("hide");
-    window.location.href= "/casestudy4_FE/authentication/index.html?_ijt=tb3je3t7bdda526lgd0gr4mp76&_ij_reload=RELOAD_ON_SAVE#signin"
+    window.location.href= "/authentication/index.html?_ijt=tb3je3t7bdda526lgd0gr4mp76&_ij_reload=RELOAD_ON_SAVE#signin"
 }
 
 function closeSignUpFailModal(){
@@ -135,7 +135,7 @@ function closeSignUpPasswordLengthFailModal(){
 
 function closeForgotSuccess(){
     $("#forgotSuccess").modal("hide")
-    window.location.href= "/casestudy4_FE/authentication/index.html"
+    window.location.href= "/authentication/index.html"
 }
 
 function closeForgotFail1(){

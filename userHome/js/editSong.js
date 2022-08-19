@@ -74,7 +74,7 @@ function toEditPage(id){
         url: "https://casestudy4.herokuapp.com/api/song/" + id  ,
         success: function (data){
             window.localStorage.setItem("songEdit",JSON.stringify(data))
-            window.location.href= "/casestudy4_FE/userHome/editSong.html"
+            window.location.href= "/userHome/editSong.html"
         }
     })
 }
@@ -138,7 +138,7 @@ function deleteSongInApp(){
 
 function closeEditSuccess(){
     $("#editSuccess").modal("hide")
-    window.location.href= "/casestudy4_FE/userHome/mySong.html"
+    window.location.href= "/userHome/mySong.html"
 }
 
 

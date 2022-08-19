@@ -59,7 +59,7 @@ function closeConfirmDelete(){
     window.localStorage.removeItem("userId")
     $("#confirmDelete").modal("hide")
     // window.location.reload()
-    window.location.href= "/casestudy4_FE/adminHome/users.html"
+    window.location.href= "/adminHome/users.html"
 }
 
 

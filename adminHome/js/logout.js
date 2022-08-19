@@ -6,6 +6,6 @@ function signout(){
 function checkAut(){
     let currentUser= JSON.parse(localStorage.getItem("user"))
     if (currentUser == null || currentUser.token == null){
-        window.location.href= "/casestudy4_FE/authentication/index.html"
+        window.location.href= "/authentication/index.html"
     }
 }

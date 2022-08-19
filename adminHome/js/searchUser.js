@@ -70,7 +70,7 @@ function deleteUser(id){
 function toSearchUserPage(){
     let username= $("#username").val()
     window.localStorage.setItem("username",username);
-    window.location.href= "/casestudy4_FE/adminHome/searchUser.html"
+    window.location.href= "/adminHome/searchUser.html"
 }
 
 function deleteModal(id){
@@ -94,7 +94,7 @@ function closeConfirmDelete(){
     window.localStorage.removeItem("userId")
     $("#confirmDelete").modal("hide")
     // window.location.reload()
-    window.location.href= "/casestudy4_FE/adminHome/users.html"
+    window.location.href= "/adminHome/users.html"
 }
 
 listSearchUser()

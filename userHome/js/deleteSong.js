@@ -43,7 +43,7 @@ function closeConfirmDelete(){
     $("#confirmDelete").modal("hide")
 
     // window.location.reload()
-    window.location.href= "/casestudy4_FE/userHome/mySong.html"
+    window.location.href= "/userHome/mySong.html"
 }
 
 function getAllList(){

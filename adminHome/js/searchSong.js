@@ -60,7 +60,7 @@ function listSearchSong(){
 function toSearchSongPage(){
     let song= $("#keyword").val()
     window.localStorage.setItem("song",song);
-    window.location.href= "/casestudy4_FE/adminHome/searchSong.html"
+    window.location.href= "/adminHome/searchSong.html"
 }
 
 function doLike_Dislike(id){
