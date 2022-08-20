@@ -64,9 +64,16 @@ function backwardSong(index){
             'Authorization': 'Bearer ' + currentUser.token
         },
         type: "GET",
-        url: "https://casestudy4.herokuapp.com/api/song/backward/" + index,
+        url: "https://casestudy4.herokuapp.com/api/song/backward",
         success: function (data){
-            data.play();
+            if(index > 0){
+                data.get(index).path.pause()
+                index--;
+                data.get(index).path.play();
+            }else {
+                index= 0;
+                data.get(index).path.play();
+            }
         }
     })
 }
