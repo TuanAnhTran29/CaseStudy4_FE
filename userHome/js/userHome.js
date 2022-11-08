@@ -18,7 +18,7 @@ function showListSong(){
                     '                \n' +
                     '            </div>\n' +
                     '            <audio style="width: 80%" controls><source src="'+ data[i].path +' "></audio>\n' +
-                    '                <button onclick="doLike_Dislike(' + data[i].id + ')" class="likeBtn"><i class="fa fa-heart-o"></i></button>\n' +
+                    '                <button onclick="doLike_Dislike(' + data[i].id + ')" class="likeBtn"><i class="fa-solid fa-heart"></i></button>\n' +
 
                     '       </li>'
             }
