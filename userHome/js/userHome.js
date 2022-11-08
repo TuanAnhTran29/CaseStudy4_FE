@@ -17,12 +17,6 @@ function showListSong(){
                     '                <div class="fw-bold">'+ data[i].name +'</div>\n' + data[i].artist +
                     '                \n' +
                     '            </div>\n' +
-                    '            <button onclick="backwardSong('+ i +')">\n' +
-                    '                <img src="https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/backward.svg" alt="Backward">\n' +
-                    '            </button>'+
-                    '            <button onclick="forwardSong('+ i +')">\n' +
-                    '                <img src="https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/forward.svg" alt="Forward">\n' +
-                    '            </button>'+
                     '            <audio style="width: 80%" controls><source src="'+ data[i].path +' "></audio>\n' +
                     '                <button onclick="doLike_Dislike(' + data[i].id + ')" class="likeBtn" style="color: white"><i class="fa fa-heart-o"></i></button>\n' +
 
