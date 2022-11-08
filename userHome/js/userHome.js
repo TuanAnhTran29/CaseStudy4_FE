@@ -24,7 +24,7 @@ function showListSong(){
                     '                <img src="https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/forward.svg" alt="Forward">\n' +
                     '            </button>'+
                     '            <audio style="width: 80%" controls><source src="'+ data[i].path +' "></audio>\n' +
-                    '                <button onclick="doLike_Dislike(' + data[i].id + ')" style="color: white"><i class="fa fa-heart-o"></i></button>\n' +
+                    '                <button onclick="doLike_Dislike(' + data[i].id + ')" class="likeBtn" style="color: white"><i class="fa fa-heart-o"></i></button>\n' +
 
                     '       </li>'
             }
@@ -48,7 +48,13 @@ function doLike_Dislike(id){
         },
         type: "GET",
         url: "https://casestudy4.herokuapp.com/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
-
+        success: function (data){
+            const likeBtn= document.querySelector(".likeBtn")
+            likeBtn.addEventListener("click",
+                function (event){
+                event.currentTarget.classList.toggle("pink")
+                })
+        }
     })
 }
 
