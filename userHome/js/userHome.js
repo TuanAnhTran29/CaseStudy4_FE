@@ -24,7 +24,7 @@ function showListSong(){
                     '                <img src="https://snowleo208.github.io/100-Days-of-Code/7.%20Music%20Player/img/forward.svg" alt="Forward">\n' +
                     '            </button>'+
                     '            <audio style="width: 80%" controls><source src="'+ data[i].path +' "></audio>\n' +
-                    '                <button onclick="doLike_Dislike(' + data[i].id + ')" style="font-size:24px;background-color: white "><i class="fa fa-heart-o"></i></button>\n' +
+                    '                <button onclick="doLike_Dislike(' + data[i].id + ')" style="color: white"><i class="fa fa-heart-o"></i></button>\n' +
 
                     '       </li>'
             }
@@ -66,13 +66,14 @@ function backwardSong(index){
         type: "GET",
         url: "https://casestudy4.herokuapp.com/api/song/backward",
         success: function (data){
+            console.log(data)
             if(index > 0){
-                data.get(index).path.pause()
+                data[index].path.pause()
                 index--;
-                data.get(index).path.play();
+                data[index].path.play();
             }else {
                 index= 0;
-                data.get(index).path.play();
+                data[index].path.play();
             }
         }
     })
