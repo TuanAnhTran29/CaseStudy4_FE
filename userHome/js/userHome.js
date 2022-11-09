@@ -43,11 +43,12 @@ function doLike_Dislike(id){
         type: "GET",
         url: "https://casestudy4.herokuapp.com/api/like_dislike/dolike_dislike/" + id + "/" + currentUser.id,
         success: function (data){
-            const likeBtn= document.querySelector(".likeBtn")
-            likeBtn.addEventListener("click",
-                function (event){
-                event.currentTarget.classList.toggle("pink")
-                })
+            // const likeBtn= document.querySelector(".likeBtn")
+            // likeBtn.addEventListener("click",
+            //     function (event){
+            //     event.currentTarget.classList.toggle("pink")
+            //     })
+            data.currentTarget.classList.toggle("pink")
         }
     })
 }
